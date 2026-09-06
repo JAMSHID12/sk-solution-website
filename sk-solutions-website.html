@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SK Solutions | Insurance & Financial Advisory, Kozhikode, Kerala</title>
+<meta name="description" content="SK Solutions is an authorized insurance advisory and financial brokerage based in Kozhikode, Kerala, offering Health, Life, Motor, and Commercial insurance guidance since 2019.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5 L90 20 V50 C90 75 72 90 50 97 C28 90 10 75 10 50 V20 Z' fill='%230F172A'/%3E%3Cpath d='M50 5 L90 20 V50 C90 75 72 90 50 97 C28 90 10 75 10 50 V20 Z' fill='none' stroke='%2310B981' stroke-width='3'/%3E%3Cpath d='M32 50 L44 62 L69 36' fill='none' stroke='%2310B981' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F172A;
+    --navy-soft:#1E293B;
+    --emerald:#10B981;
+    --emerald-dark:#0B8F63;
+    --whatsapp:#075E54;
+    --slate-bg:#F8FAFC;
+    --white:#FFFFFF;
+    --ink:#1E293B;
+    --ink-muted:#5B6B82;
+    --border:#E2E8F0;
+    --radius-s:6px;
+    --radius-m:10px;
+    --max-w:1180px;
+    --shadow: 0 1px 2px rgba(15,23,42,0.06), 0 8px 24px rgba(15,23,42,0.06);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    font-family:'Inter',-apple-system,'Segoe UI',sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  h1,h2,h3,h4,p{margin:0;}
+  button{font-family:inherit;cursor:pointer;}
+  .wrap{max-width:var(--max-w);margin:0 auto;padding:0 24px;}
+  :focus-visible{outline:3px solid #0EA5E9;outline-offset:2px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    height:76px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.28rem;color:var(--navy);letter-spacing:-0.01em;}
+  .brand .logo-word{color:var(--navy);}
+  .brand .logo-word span{color:var(--emerald);}
+  .nav-links{display:flex;align-items:center;gap:36px;}
+  .nav-links a{
+    font-weight:500;font-size:0.98rem;color:var(--navy-soft);
+    position:relative;padding:6px 0;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;height:2px;width:0;
+    background:var(--emerald);transition:width .2s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:12px 22px;border-radius:var(--radius-s);
+    font-weight:600;font-size:0.95rem;border:1.5px solid transparent;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+    white-space:nowrap;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:var(--emerald);color:#fff;}
+  .btn-primary:hover{background:var(--emerald-dark);}
+  .btn-whatsapp{background:var(--whatsapp);color:#fff;}
+  .btn-whatsapp:hover{background:#054a42;}
+  .btn-outline{background:transparent;color:var(--navy);border-color:var(--border);}
+  .btn-outline:hover{border-color:var(--navy);}
+  .btn-block{width:100%;}
+  .hamburger{
+    display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px;
+  }
+  .hamburger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:transform .2s ease, opacity .2s ease;}
+  .mobile-panel{
+    display:none;
+    position:fixed;inset:76px 0 0 0;background:var(--white);z-index:99;
+    padding:28px 24px;flex-direction:column;gap:4px;overflow-y:auto;
+  }
+  .mobile-panel.open{display:flex;}
+  .mobile-panel a{padding:16px 4px;font-weight:600;font-size:1.05rem;border-bottom:1px solid var(--border);color:var(--navy);}
+  .mobile-panel .btn{margin-top:18px;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:
+      radial-gradient(1100px 480px at 82% -10%, rgba(16,185,129,0.10), transparent 60%),
+      var(--slate-bg);
+    padding:76px 0 64px;
+    border-bottom:1px solid var(--border);
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--emerald-dark);font-weight:600;font-size:0.85rem;
+    background:rgba(16,185,129,0.1);padding:7px 14px;border-radius:100px;
+    margin-bottom:20px;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem,4.2vw,3.15rem);
+    font-weight:800;color:var(--navy);letter-spacing:-0.02em;line-height:1.14;
+    max-width:19ch;
+  }
+  .hero p.sub{
+    margin-top:20px;font-size:1.1rem;color:var(--ink-muted);max-width:56ch;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;}
+  .badges{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px;}
+  .badge{
+    display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--border);
+    padding:10px 16px;border-radius:100px;font-size:0.86rem;font-weight:600;color:var(--navy-soft);
+    box-shadow:var(--shadow);
+  }
+  .badge svg{width:16px;height:16px;flex:none;color:var(--emerald);}
+
+  .hero-panel{
+    background:var(--navy);border-radius:var(--radius-m);padding:38px 32px;color:#fff;
+    box-shadow:0 20px 50px -14px rgba(15,23,42,0.45);
+  }
+  .hero-panel h3{font-size:1rem;font-weight:600;color:#A7F3D0;margin-bottom:22px;letter-spacing:0.01em;}
+  .stat-row{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1);}
+  .stat-row:last-of-type{border-bottom:none;}
+  .stat-row .num{font-size:1.7rem;font-weight:800;}
+  .stat-row .lbl{font-size:0.85rem;color:#94A3B8;text-align:right;max-width:15ch;}
+  .hero-panel .panel-note{margin-top:22px;font-size:0.85rem;color:#94A3B8;border-top:1px solid rgba(255,255,255,0.1);padding-top:18px;}
+
+  section{padding:88px 0;}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head .kicker{color:var(--emerald-dark);font-weight:600;font-size:0.88rem;margin-bottom:10px;display:block;}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:800;color:var(--navy);letter-spacing:-0.01em;}
+  .section-head p{margin-top:14px;color:var(--ink-muted);font-size:1.05rem;}
+
+  /* ---------- Services ---------- */
+  .services{background:var(--white);}
+  .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .service-card{
+    border:1px solid var(--border);border-left:4px solid var(--emerald);
+    border-radius:var(--radius-m);padding:30px 28px;background:var(--slate-bg);
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .service-card:hover{background:#fff;box-shadow:var(--shadow);}
+  .service-icon{
+    width:46px;height:46px;border-radius:10px;background:var(--navy);
+    display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+  }
+  .service-icon svg{width:22px;height:22px;color:var(--emerald);}
+  .service-card h3{font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:10px;}
+  .service-card p{color:var(--ink-muted);font-size:0.98rem;}
+
+  /* ---------- About ---------- */
+  .about{background:var(--slate-bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .about-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:56px;align-items:start;}
+  .about-copy p{color:var(--ink-muted);font-size:1.03rem;margin-bottom:18px;}
+  .about-copy p:last-child{margin-bottom:0;}
+  .about-card{
+    background:#fff;border:1px solid var(--border);border-radius:var(--radius-m);padding:30px;box-shadow:var(--shadow);
+  }
+  .about-card .founded{font-size:0.85rem;font-weight:600;color:var(--emerald-dark);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:6px;}
+  .about-card .founded-date{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:22px;}
+  .about-list{display:flex;flex-direction:column;gap:16px;}
+  .about-list li{display:flex;gap:12px;align-items:flex-start;font-size:0.95rem;color:var(--navy-soft);}
+  .about-list svg{width:18px;height:18px;flex:none;margin-top:2px;color:var(--emerald);}
+
+  /* ---------- Contact ---------- */
+  .contact{background:#fff;}
+  .contact-grid{display:grid;grid-template-columns:1fr 0.85fr;gap:48px;align-items:start;}
+  .contact-info{background:var(--navy);color:#fff;border-radius:var(--radius-m);padding:36px 32px;}
+  .contact-info h3{font-size:1.2rem;font-weight:700;margin-bottom:24px;}
+  .info-row{display:flex;gap:14px;padding:16px 0;border-top:1px solid rgba(255,255,255,0.1);}
+  .info-row:first-of-type{border-top:none;}
+  .info-row svg{width:20px;height:20px;flex:none;color:var(--emerald);margin-top:2px;}
+  .info-row .lbl{font-size:0.78rem;color:#94A3B8;font-weight:600;margin-bottom:3px;}
+  .info-row a, .info-row span.val{font-size:0.98rem;font-weight:500;color:#fff;}
+  .info-row a:hover{color:var(--emerald);}
+
+  form{display:flex;flex-direction:column;gap:16px;}
+  .field{display:flex;flex-direction:column;gap:7px;}
+  .field label{font-size:0.88rem;font-weight:600;color:var(--navy-soft);}
+  .field input, .field select, .field textarea{
+    padding:13px 14px;border:1.5px solid var(--border);border-radius:var(--radius-s);
+    font-family:inherit;font-size:0.98rem;color:var(--ink);background:#fff;
+    transition:border-color .15s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--emerald);}
+  .field textarea{resize:vertical;min-height:110px;}
+  .row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .form-note{font-size:0.85rem;color:var(--ink-muted);margin-top:2px;}
+  .form-success{
+    display:none;margin-top:14px;padding:14px 16px;border-radius:var(--radius-s);
+    background:rgba(16,185,129,0.1);color:var(--emerald-dark);font-size:0.92rem;font-weight:600;
+  }
+  .form-success.show{display:block;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy);color:#CBD5E1;padding:64px 0 28px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.1);}
+  .footer-brand .brand{color:#fff;margin-bottom:14px;}
+  .footer-brand .brand .logo-word{color:#fff;}
+  .footer-brand p{font-size:0.92rem;color:#94A3B8;max-width:32ch;}
+  .footer-col h4{color:#fff;font-size:0.92rem;font-weight:600;margin-bottom:18px;}
+  .footer-col ul{display:flex;flex-direction:column;gap:12px;}
+  .footer-col a, .footer-col button.linklike{
+    font-size:0.92rem;color:#94A3B8;background:none;border:none;padding:0;text-align:left;
+  }
+  .footer-col a:hover, .footer-col button.linklike:hover{color:var(--emerald);}
+  .footer-bottom{
+    padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-size:0.82rem;color:#64748B;
+  }
+  .footer-bottom .reg{color:#94A3B8;}
+
+  /* ---------- Modal ---------- */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(15,23,42,0.55);
+    display:none;align-items:center;justify-content:center;z-index:200;padding:24px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-box{
+    background:#fff;border-radius:var(--radius-m);max-width:640px;width:100%;
+    max-height:82vh;overflow-y:auto;padding:36px;box-shadow:0 30px 60px -12px rgba(0,0,0,0.35);
+  }
+  .modal-box h3{font-size:1.3rem;font-weight:800;color:var(--navy);margin-bottom:6px;}
+  .modal-box .modal-sub{font-size:0.85rem;color:var(--ink-muted);margin-bottom:22px;}
+  .modal-box h4{font-size:0.95rem;font-weight:700;color:var(--navy);margin:20px 0 8px;}
+  .modal-box p, .modal-box li{font-size:0.92rem;color:var(--ink-muted);line-height:1.65;}
+  .modal-box ul{padding-left:18px;list-style:disc;margin-top:6px;}
+  .modal-box li{margin-bottom:6px;}
+  .modal-close{
+    float:right;background:var(--slate-bg);border:1px solid var(--border);border-radius:8px;
+    width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--navy);
+  }
+  .modal-close:hover{background:var(--border);}
+
+  /* WhatsApp float */
+  .wa-float{
+    position:fixed;bottom:22px;right:22px;z-index:150;
+    width:58px;height:58px;border-radius:50%;background:var(--whatsapp);
+    display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(7,94,84,0.4);
+    transition:transform .15s ease;
+  }
+  .wa-float:hover{transform:scale(1.06);}
+  .wa-float svg{width:28px;height:28px;color:#fff;}
+
+  @media (max-width:920px){
+    .nav-links{display:none;}
+    .nav-cta .btn-outline{display:none;}
+    .hamburger{display:flex;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero h1{max-width:none;}
+    .about-grid{grid-template-columns:1fr;}
+    .service-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:560px){
+    .row-2{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    section{padding:64px 0;}
+    .nav{height:68px;}
+    .mobile-panel{inset:68px 0 0 0;}
+  }
+
+  .reveal{opacity:0;transform:translateY(14px);animation:reveal .7s ease forwards;}
+  @keyframes reveal{to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#home" class="brand" aria-label="SK Solutions home">
+      <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M50 5 L90 20 V50 C90 75 72 90 50 97 C28 90 10 75 10 50 V20 Z" fill="#0F172A"/>
+        <path d="M50 5 L90 20 V50 C90 75 72 90 50 97 C28 90 10 75 10 50 V20 Z" fill="none" stroke="#10B981" stroke-width="4"/>
+        <path d="M32 50 L44 62 L69 36" fill="none" stroke="#10B981" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="logo-word">SK <span>Solutions</span></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Insurance Services</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a class="btn btn-outline" href="#contact">Get a Free Quote</a>
+      <a class="btn btn-whatsapp" href="https://wa.me/919946772362" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.02c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.11.11-1.79-.11-.41-.13-.95-.31-1.63-.6-2.87-1.24-4.74-4.14-4.88-4.33-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.28.56-.35.75-.35.19 0 .37 0 .53.01.17.01.4-.06.62.48.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.7 1.16 1.51 1.88 1.04.93 1.91 1.22 2.19 1.36.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.27.37-.22.62-.13.26.09 1.64.77 1.92.91.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+        WhatsApp Us
+      </a>
+      <button class="hamburger" aria-label="Toggle menu" id="hamburgerBtn" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#services">Insurance Services</a>
+    <a href="#contact">Contact Us</a>
+    <a class="btn btn-primary btn-block" href="#contact">Get a Free Quote</a>
+    <a class="btn btn-whatsapp btn-block" href="https://wa.me/919946772362" target="_blank" rel="noopener">WhatsApp Us</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">Kozhikode, Kerala &middot; Serving clients since 2019</span>
+        <h1>Trusted Insurance &amp; Financial Protection for Your Family and Business</h1>
+        <p class="sub">Personalized Life, Health, Motor, and Commercial insurance advisory tailored to safeguard what matters most to you. Serving clients across Kerala since 2019.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Get a Free Quote</a>
+          <a class="btn btn-whatsapp" href="https://wa.me/919946772362" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.02c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.11.11-1.79-.11-.41-.13-.95-.31-1.63-.6-2.87-1.24-4.74-4.14-4.88-4.33-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.28.56-.35.75-.35.19 0 .37 0 .53.01.17.01.4-.06.62.48.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.7 1.16 1.51 1.88 1.04.93 1.91 1.22 2.19 1.36.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.27.37-.22.62-.13.26.09 1.64.77 1.92.91.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+        <div class="badges">
+          <span class="badge"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Govt. of India MSME Registered (Udyam)</span>
+          <span class="badge"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>5+ Years Experience</span>
+          <span class="badge"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>100% Claim Assistance</span>
+        </div>
+      </div>
+
+      <div class="hero-panel reveal" style="animation-delay:.1s">
+        <h3>Why families &amp; businesses choose SK Solutions</h3>
+        <div class="stat-row"><span class="num">2019</span><span class="lbl">Founded in Kozhikode, Kerala</span></div>
+        <div class="stat-row"><span class="num">4</span><span class="lbl">Insurance categories advised on</span></div>
+        <div class="stat-row"><span class="num">100%</span><span class="lbl">End-to-end claim support</span></div>
+        <p class="panel-note">Independent advisory — we compare policies across insurers to find the right fit for your budget and risk.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Insurance Services</span>
+        <h2>Advisory built around what you need covered</h2>
+        <p>We compare plans across leading insurers so you get the right coverage — not just the first quote.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 21s-8-4.5-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-8 11-8 11z"/></svg></div>
+          <h3>Health &amp; Medical Insurance</h3>
+          <p>Comprehensive family floater and critical illness coverage, matched to your household's medical history and budget.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg></div>
+          <h3>Life &amp; Term Insurance</h3>
+          <p>Secure your family's financial future with guaranteed plans built around your income, dependents, and long-term goals.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 17h14M6 17V9l2-4h8l2 4v8M7 17a2 2 0 1 1-4 0M21 17a2 2 0 1 1-4 0"/></svg></div>
+          <h3>Motor &amp; Vehicle Insurance</h3>
+          <p>Instant two-wheeler and four-wheeler policy renewals with clear comparisons on premium, add-ons, and claim ratios.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
+          <h3>Commercial &amp; Business Insurance</h3>
+          <p>Shop, fire, transit, and liability risk protection to keep your business running after the unexpected.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <span class="kicker" style="display:block;margin-bottom:10px;">About Us</span>
+        <h2 style="font-size:clamp(1.7rem,3vw,2.3rem);font-weight:800;color:var(--navy);letter-spacing:-0.01em;margin-bottom:20px;">Local advisors, transparent process, real claim support</h2>
+        <p>SK Solutions was established on August 15, 2019 in Kozhikode, Kerala, with a simple goal: help families and small businesses choose insurance they actually understand.</p>
+        <p>Our dedicated insurance agents and brokerage consultants are committed to transparent policies, honest premium comparisons across insurers, and dedicated end-to-end claim settlement support — from paperwork to payout.</p>
+        <p>We don't push a single insurer's products. Every recommendation starts with your situation — your health, your assets, your budget — and works backward to the right cover.</p>
+      </div>
+      <div class="about-card">
+        <div class="founded">Established</div>
+        <div class="founded-date">15 August 2019 &middot; Kozhikode, Kerala</div>
+        <ul class="about-list">
+          <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Independent, multi-insurer premium comparisons</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Plain-language policy explanations, no fine-print surprises</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Hands-on support through the entire claim process</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Registered MSME (Udyam) enterprise</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Contact Us</span>
+        <h2>Tell us what you need covered</h2>
+        <p>Share a few details and one of our advisors will get back to you — usually within one business day.</p>
+      </div>
+      <div class="contact-grid">
+        <form id="contactForm" novalidate>
+          <div class="row-2">
+            <div class="field">
+              <label for="fname">Full name</label>
+              <input type="text" id="fname" name="name" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label for="fphone">Phone number</label>
+              <input type="tel" id="fphone" name="phone" placeholder="+91 " required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="femail">Email address</label>
+            <input type="email" id="femail" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="field">
+            <label for="finsurance">Insurance requirement</label>
+            <select id="finsurance" name="insurance" required>
+              <option value="" disabled selected>Select a category</option>
+              <option>Health &amp; Medical Insurance</option>
+              <option>Life &amp; Term Insurance</option>
+              <option>Motor &amp; Vehicle Insurance</option>
+              <option>Commercial &amp; Business Insurance</option>
+              <option>Not sure — need guidance</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fmessage">Message</label>
+            <textarea id="fmessage" name="message" placeholder="Tell us a bit about what you're looking for" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Send Enquiry</button>
+          <p class="form-note">We reply only to enquiries submitted here or via WhatsApp — we never send unsolicited marketing messages. See our <button type="button" class="linklike" id="openPrivacyFromForm" style="text-decoration:underline;font-weight:600;">Privacy Policy</button>.</p>
+          <div class="form-success" id="formSuccess">Thanks — your enquiry has been prepared in your email app. If it didn't open automatically, please WhatsApp us instead.</div>
+        </form>
+
+        <div class="contact-info">
+          <h3>Registered Office &amp; Direct Contact</h3>
+          <div class="info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div><div class="lbl">Phone / WhatsApp</div><a href="tel:+919946772362">+91 99467 72362</a></div>
+          </div>
+          <div class="info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg>
+            <div><div class="lbl">Email</div><a href="mailto:sooraj.calicut953@gmail.com">sooraj.calicut953@gmail.com</a></div>
+          </div>
+          <div class="info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><div class="lbl">Registered Office</div><span class="val">Surabhi HO, Kuruvattoor PO, Kakkodi Via, Kozhikode, Kerala&nbsp;-&nbsp;673611</span></div>
+          </div>
+          <div class="info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <div><div class="lbl">Business Hours</div><span class="val">Mon–Sat, 9:30 AM – 6:30 PM IST</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer id="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="brand">
+          <svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M50 5 L90 20 V50 C90 75 72 90 50 97 C28 90 10 75 10 50 V20 Z" fill="#1E293B"/>
+            <path d="M50 5 L90 20 V50 C90 75 72 90 50 97 C28 90 10 75 10 50 V20 Z" fill="none" stroke="#10B981" stroke-width="4"/>
+            <path d="M32 50 L44 62 L69 36" fill="none" stroke="#10B981" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="logo-word">SK Solutions</span>
+        </a>
+        <p>Authorized insurance advisory and financial brokerage enterprise based in Kozhikode, Kerala. Independent guidance across Health, Life, Motor, and Commercial insurance.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Insurance Services</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Health &amp; Medical</a></li>
+          <li><a href="#services">Life &amp; Term</a></li>
+          <li><a href="#services">Motor &amp; Vehicle</a></li>
+          <li><a href="#services">Commercial &amp; Business</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><button type="button" class="linklike" data-modal="privacy">Privacy Policy</button></li>
+          <li><button type="button" class="linklike" data-modal="terms">Terms of Service</button></li>
+          <li><button type="button" class="linklike" data-modal="disclaimer">Disclaimer</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SK Solutions. All rights reserved.</span>
+      <span class="reg">Legal Business Name: SK Solutions &nbsp;|&nbsp; Udyam Registration No: UDYAM-KL-08-0116289</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/919946772362" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.02c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.11.11-1.79-.11-.41-.13-.95-.31-1.63-.6-2.87-1.24-4.74-4.14-4.88-4.33-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.28.56-.35.75-.35.19 0 .37 0 .53.01.17.01.4-.06.62.48.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.7 1.16 1.51 1.88 1.04.93 1.91 1.22 2.19 1.36.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.27.37-.22.62-.13.26.09 1.64.77 1.92.91.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+</a>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalCloseBtn" aria-label="Close">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+  // Mobile menu
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobilePanel = document.getElementById('mobilePanel');
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mobilePanel.classList.toggle('open');
+    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+  });
+  mobilePanel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobilePanel.classList.remove('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Contact form -> mailto fallback (static site, no backend)
+  const contactForm = document.getElementById('contactForm');
+  const formSuccess = document.getElementById('formSuccess');
+  contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!contactForm.checkValidity()){
+      contactForm.reportValidity();
+      return;
+    }
+    const name = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const insurance = document.getElementById('finsurance').value;
+    const message = document.getElementById('fmessage').value.trim();
+
+    const subject = encodeURIComponent(`Insurance Enquiry - ${insurance}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nInsurance Requirement: ${insurance}\n\nMessage:\n${message}`
+    );
+    window.location.href = `mailto:sooraj.calicut953@gmail.com?subject=${subject}&body=${body}`;
+    formSuccess.classList.add('show');
+    contactForm.reset();
+  });
+
+  // Modals
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalContent = document.getElementById('modalContent');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+  const modalData = {
+    privacy: {
+      title: 'Privacy Policy',
+      sub: 'Last updated: January 2026',
+      html: `
+        <p>SK Solutions ("we", "us", "our") respects your privacy. This policy explains what information we collect through this website and how we use it.</p>
+        <h4>Information we collect</h4>
+        <ul>
+          <li>Contact details you submit through our enquiry form: name, phone number, email address, and your message.</li>
+          <li>Basic technical data such as browser type and device, collected automatically for site performance.</li>
+        </ul>
+        <h4>How we use your information</h4>
+        <ul>
+          <li>To respond to your insurance enquiry and provide the advisory service you requested.</li>
+          <li>To share policy comparisons, quotes, or claim assistance you have asked for.</li>
+          <li>We do not sell or rent your personal information to third parties.</li>
+        </ul>
+        <h4>Non-spam messaging commitment</h4>
+        <p>We only contact you regarding the enquiry you submit, by phone, email, or WhatsApp. We do not add you to bulk marketing lists, and you may ask us to stop contacting you at any time by replying "stop" or emailing us.</p>
+        <h4>Data storage &amp; sharing with insurers</h4>
+        <p>Where necessary to obtain a quote or process a claim, your details may be shared with the relevant insurance company or underwriter on your behalf, with your consent.</p>
+        <h4>Contact us about your data</h4>
+        <p>For any privacy questions, write to sooraj.calicut953@gmail.com or call +91 99467 72362.</p>
+      `
+    },
+    terms: {
+      title: 'Terms of Service',
+      sub: 'Last updated: January 2026',
+      html: `
+        <p>By using this website, you agree to the following terms.</p>
+        <h4>Our role</h4>
+        <p>SK Solutions acts as an independent insurance advisory and brokerage enterprise, helping you compare and select insurance products from various insurers. We are not the insurer, and final policy issuance and claim decisions rest with the respective insurance company.</p>
+        <h4>Website use</h4>
+        <ul>
+          <li>Content on this website is for general information only and does not constitute a binding insurance offer.</li>
+          <li>Quotes shared are indicative and subject to underwriting by the insurer.</li>
+          <li>You agree to provide accurate information when submitting an enquiry, as inaccurate details may affect policy issuance or claims.</li>
+        </ul>
+        <h4>Intellectual property</h4>
+        <p>The SK Solutions name, logo, and website content belong to SK Solutions and may not be reproduced without permission.</p>
+        <h4>Limitation of liability</h4>
+        <p>SK Solutions is not liable for decisions made solely on the basis of general information published on this website. Please review full policy wordings issued by the insurer before purchase.</p>
+        <h4>Governing law</h4>
+        <p>These terms are governed by the laws of India, with courts in Kozhikode, Kerala having jurisdiction.</p>
+      `
+    },
+    disclaimer: {
+      title: 'Disclaimer',
+      sub: 'Please read before requesting a quote',
+      html: `
+        <p>SK Solutions is an insurance advisory and brokerage enterprise, registered as a Government of India MSME (Udyam). We facilitate comparisons and applications between customers and licensed insurance providers.</p>
+        <h4>Not the insurer</h4>
+        <p>We are not an insurance company. Policy terms, premiums, exclusions, and claim settlements are determined solely by the issuing insurer, in accordance with the policy document.</p>
+        <h4>No guarantee of outcome</h4>
+        <p>While we provide end-to-end claim assistance, final claim approval and settlement amounts are decided by the insurer based on policy terms and the facts of each case.</p>
+        <h4>Information accuracy</h4>
+        <p>We make reasonable efforts to keep information on this website accurate and current, but insurance products, premiums, and regulations can change. Always confirm final terms directly with the insurer or your SK Solutions advisor before purchase.</p>
+        <h4>No spam, no pressure</h4>
+        <p>We will never pressure you into a purchase or contact you outside of the enquiry you have raised with us.</p>
+      `
+    }
+  };
+
+  function openModal(key){
+    const data = modalData[key];
+    if(!data) return;
+    modalContent.innerHTML = `<h3 id="modalTitle">${data.title}</h3><p class="modal-sub">${data.sub}</p>${data.html}`;
+    modalOverlay.classList.add('open');
+    modalCloseBtn.focus();
+  }
+  function closeModal(){
+    modalOverlay.classList.remove('open');
+  }
+  document.querySelectorAll('[data-modal]').forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.getAttribute('data-modal')));
+  });
+  document.getElementById('openPrivacyFromForm').addEventListener('click', () => openModal('privacy'));
+  modalCloseBtn.addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', (e) => { if(e.target === modalOverlay) closeModal(); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+</script>
+
+</body>
+</html>
