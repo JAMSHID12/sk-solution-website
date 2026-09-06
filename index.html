@@ -32,6 +32,7 @@
     html{scroll-behavior:auto;}
     *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
   }
+  html,body{max-width:100%;overflow-x:hidden;}
   body{
     margin:0;
     font-family:'Inter',-apple-system,'Segoe UI',sans-serif;
@@ -72,7 +73,7 @@
     background:var(--emerald);transition:width .2s ease;
   }
   .nav-links a:hover::after{width:100%;}
-  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .nav-cta{display:flex;align-items:center;gap:14px;flex-shrink:0;}
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
     padding:12px 22px;border-radius:var(--radius-s);
@@ -90,6 +91,7 @@
   .btn-block{width:100%;}
   .hamburger{
     display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px;
+    flex-shrink:0;z-index:101;position:relative;
   }
   .hamburger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:transform .2s ease, opacity .2s ease;}
   .mobile-panel{
@@ -273,13 +275,43 @@
     .service-grid{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr 1fr;}
+    .hero h1{font-size:clamp(1.7rem,4.4vw,2.6rem);}
+  }
+  @media (max-width:640px){
+    .nav{height:64px;gap:8px;}
+    .wrap{padding:0 16px;}
+    .brand{font-size:1.05rem;gap:8px;}
+    .brand svg{width:28px;height:28px;}
+    .nav-cta{gap:8px;}
+    #headerWaBtn{padding:9px 12px;font-size:0;gap:0;}
+    #headerWaBtn svg{width:18px;height:18px;}
+    #headerWaBtn .wa-text{display:none;}
+    .hamburger{padding:6px;}
+    .mobile-panel{inset:64px 0 0 0;}
+
+    .hero{padding:44px 0 40px;}
+    .eyebrow{font-size:0.72rem;padding:5px 11px;}
+    .hero h1{font-size:1.5rem;line-height:1.22;max-width:none;letter-spacing:-0.01em;}
+    .hero p.sub{font-size:0.95rem;margin-top:14px;}
+    .hero-actions{margin-top:22px;gap:10px;}
+    .hero-actions .btn{padding:10px 16px;font-size:0.88rem;flex:1 1 auto;}
+    .badges{margin-top:22px;gap:8px;}
+    .badge{padding:8px 12px;font-size:0.76rem;}
+    .hero-panel{padding:26px 22px;}
+    .stat-row .num{font-size:1.35rem;}
+
+    section{padding:56px 0;}
+    .section-head{margin-bottom:32px;}
+    .section-head h2{font-size:1.5rem;}
+    .section-head p{font-size:0.95rem;}
+    .about-copy h2{font-size:1.5rem !important;}
+
+    .wa-float{width:46px;height:46px;bottom:16px;right:16px;}
+    .wa-float svg{width:22px;height:22px;}
   }
   @media (max-width:560px){
     .row-2{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr;}
-    section{padding:64px 0;}
-    .nav{height:68px;}
-    .mobile-panel{inset:68px 0 0 0;}
   }
 
   .reveal{opacity:0;transform:translateY(14px);animation:reveal .7s ease forwards;}
@@ -308,9 +340,9 @@
 
     <div class="nav-cta">
       <a class="btn btn-outline" href="#contact">Get a Free Quote</a>
-      <a class="btn btn-whatsapp" href="https://wa.me/919946772362" target="_blank" rel="noopener">
+      <a class="btn btn-whatsapp" id="headerWaBtn" href="https://wa.me/919946772362" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.02c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.11.11-1.79-.11-.41-.13-.95-.31-1.63-.6-2.87-1.24-4.74-4.14-4.88-4.33-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.28.56-.35.75-.35.19 0 .37 0 .53.01.17.01.4-.06.62.48.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.7 1.16 1.51 1.88 1.04.93 1.91 1.22 2.19 1.36.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.27.37-.22.62-.13.26.09 1.64.77 1.92.91.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
-        WhatsApp Us
+        <span class="wa-text">WhatsApp Us</span>
       </a>
       <button class="hamburger" aria-label="Toggle menu" id="hamburgerBtn" aria-expanded="false">
         <span></span><span></span><span></span>
